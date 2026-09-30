@@ -1,0 +1,385 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    background-color: #F7F5EF;
+    color: #172321;
+    font-family: 'Plus Jakarta Sans', 'Inter', system-ui, sans-serif;
+    overflow-x: hidden;
+  }
+
+  /* Smooth scrolling */
+  html {
+    scroll-behavior: smooth;
+  }
+
+  /* Selection */
+  ::selection {
+    background-color: #1F7A70;
+    color: #FFFFFF;
+  }
+}
+
+@layer components {
+  /* 3D Glassmorphic LIVORA Card System */
+  .livora-card {
+    background: rgba(255, 255, 255, 0.88);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(226, 223, 214, 0.8);
+    border-radius: 1.25rem;
+    padding: 1.5rem;
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    box-shadow: 0 10px 30px -10px rgba(18, 60, 53, 0.06), inset 0 1px 0 0 rgba(255, 255, 255, 0.9);
+    transform-style: preserve-3d;
+  }
+  .livora-card:hover {
+    transform: translateY(-6px) scale(1.01) rotateX(1.5deg);
+    box-shadow: 0 24px 48px -12px rgba(18, 60, 53, 0.14), 0 8px 16px -4px rgba(18, 60, 53, 0.06), inset 0 1px 0 0 rgba(255, 255, 255, 1);
+    border-color: rgba(31, 122, 112, 0.4);
+  }
+
+  /* 3D Elevated Card */
+  .livora-card-3d {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(247, 245, 239, 0.9) 100%);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1.5px solid rgba(255, 255, 255, 0.9);
+    border-radius: 1.5rem;
+    box-shadow: 
+      0 20px 40px -15px rgba(18, 60, 53, 0.1),
+      0 0 0 1px rgba(31, 122, 112, 0.08),
+      inset 0 1px 1px 0 rgba(255, 255, 255, 1);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    transform-style: preserve-3d;
+  }
+  .livora-card-3d:hover {
+    transform: translateY(-8px) rotateX(2deg) rotateY(-2deg) scale(1.015);
+    box-shadow: 
+      0 30px 60px -20px rgba(18, 60, 53, 0.18),
+      0 0 20px 2px rgba(31, 122, 112, 0.15),
+      inset 0 1px 2px 0 rgba(255, 255, 255, 1);
+    border-color: rgba(31, 122, 112, 0.5);
+  }
+
+  /* 3D Button System */
+  .livora-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.875rem;
+    font-weight: 700;
+    font-size: 0.9375rem;
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    cursor: pointer;
+    min-height: 48px;
+    position: relative;
+    overflow: hidden;
+    transform-style: preserve-3d;
+  }
+  .livora-btn-primary {
+    background: linear-gradient(135deg, #123C35 0%, #175249 100%);
+    color: #FFFFFF;
+    box-shadow: 0 4px 14px 0 rgba(18, 60, 53, 0.3), inset 0 1px 0 0 rgba(255, 255, 255, 0.2);
+  }
+  .livora-btn-primary:hover {
+    background: linear-gradient(135deg, #0d2e29 0%, #123C35 100%);
+    transform: translateY(-2px) scale(1.02);
+    box-shadow: 0 12px 28px -4px rgba(18, 60, 53, 0.4), inset 0 1px 0 0 rgba(255, 255, 255, 0.3);
+  }
+  .livora-btn-primary:active {
+    transform: translateY(1px) scale(0.99);
+    box-shadow: 0 4px 10px 0 rgba(18, 60, 53, 0.3);
+  }
+
+  .livora-btn-secondary {
+    background: rgba(255, 255, 255, 0.9);
+    backdrop-filter: blur(10px);
+    color: #123C35;
+    border: 1.5px solid #E2DFD6;
+    box-shadow: 0 4px 12px 0 rgba(0, 0, 0, 0.03);
+  }
+  .livora-btn-secondary:hover {
+    border-color: #1F7A70;
+    color: #1F7A70;
+    background: #FFFFFF;
+    transform: translateY(-2px) scale(1.02);
+    box-shadow: 0 10px 24px -4px rgba(31, 122, 112, 0.15);
+  }
+
+  .livora-btn-accent {
+    background: linear-gradient(135deg, #F2B84B 0%, #E29B27 100%);
+    color: #172321;
+    box-shadow: 0 4px 16px 0 rgba(242, 184, 75, 0.35), inset 0 1px 0 0 rgba(255, 255, 255, 0.4);
+  }
+  .livora-btn-accent:hover {
+    background: linear-gradient(135deg, #f5c468 0%, #e29b27 100%);
+    transform: translateY(-2px) scale(1.02);
+    box-shadow: 0 12px 28px -4px rgba(242, 184, 75, 0.45);
+  }
+
+  /* 3D Voice Mic Button with multi-ring pulse */
+  .livora-mic-btn {
+    width: 88px;
+    height: 88px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #123C35 0%, #1F7A70 50%, #299b8e 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    position: relative;
+    cursor: pointer;
+    box-shadow: 
+      0 12px 30px -6px rgba(18, 60, 53, 0.4),
+      0 0 0 1px rgba(255, 255, 255, 0.2),
+      inset 0 2px 4px 0 rgba(255, 255, 255, 0.4);
+  }
+  .livora-mic-btn::before {
+    content: '';
+    position: absolute;
+    inset: -8px;
+    border-radius: 50%;
+    border: 2px solid rgba(31, 122, 112, 0.25);
+    transition: all 0.3s ease;
+  }
+  .livora-mic-btn::after {
+    content: '';
+    position: absolute;
+    inset: -16px;
+    border-radius: 50%;
+    border: 1.5px dashed rgba(242, 184, 75, 0.3);
+    transition: all 0.4s ease;
+    animation: spinSlow 20s linear infinite;
+  }
+  .livora-mic-btn:hover {
+    transform: scale(1.08) rotate(3deg);
+    box-shadow: 
+      0 18px 40px -8px rgba(31, 122, 112, 0.5),
+      0 0 25px 5px rgba(242, 184, 75, 0.25);
+  }
+  .livora-mic-btn:hover::before {
+    border-color: rgba(31, 122, 112, 0.6);
+    inset: -12px;
+  }
+  .livora-mic-btn.listening {
+    background: linear-gradient(135deg, #1F7A70 0%, #2b8173 50%, #F2B84B 100%);
+    animation: breathe 1.8s ease-in-out infinite;
+    box-shadow: 
+      0 0 35px 8px rgba(31, 122, 112, 0.5),
+      0 0 60px 15px rgba(242, 184, 75, 0.3);
+  }
+  .livora-mic-btn.listening::before {
+    border-color: rgba(242, 184, 75, 0.8);
+    animation: breathe 1.8s ease-in-out infinite;
+  }
+
+  /* 3D Progress Node */
+  .livora-progress-node {
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 800;
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    position: relative;
+    z-index: 2;
+    box-shadow: 0 6px 16px -4px rgba(18, 60, 53, 0.15);
+  }
+  .livora-progress-node.completed {
+    background: linear-gradient(135deg, #123C35 0%, #1F7A70 100%);
+    color: #FFFFFF;
+    box-shadow: 0 8px 20px -4px rgba(18, 60, 53, 0.3);
+  }
+  .livora-progress-node.current {
+    background: linear-gradient(135deg, #F2B84B 0%, #e8a526 100%);
+    color: #172321;
+    box-shadow: 0 0 0 6px rgba(242, 184, 75, 0.3), 0 10px 25px -4px rgba(242, 184, 75, 0.4);
+  }
+  .livora-progress-node.upcoming {
+    background: #FFFFFF;
+    color: #66736F;
+    border: 2px solid #E2DFD6;
+  }
+
+  /* 3D Pill Badges */
+  .livora-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.375rem;
+    padding: 0.35rem 0.875rem;
+    border-radius: 9999px;
+    font-size: 0.8125rem;
+    font-weight: 600;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+    backdrop-filter: blur(8px);
+    transition: transform 0.2s ease;
+  }
+  .livora-badge:hover {
+    transform: translateY(-1px);
+  }
+  .livora-badge-primary {
+    background: rgba(18, 60, 53, 0.1);
+    color: #123C35;
+    border: 1px solid rgba(18, 60, 53, 0.15);
+  }
+  .livora-badge-accent {
+    background: rgba(242, 184, 75, 0.2);
+    color: #8c5807;
+    border: 1px solid rgba(242, 184, 75, 0.3);
+  }
+  .livora-badge-secondary {
+    background: rgba(31, 122, 112, 0.12);
+    color: #1F7A70;
+    border: 1px solid rgba(31, 122, 112, 0.2);
+  }
+}
+
+/* 3D Floating Animations */
+.animate-float-slow {
+  animation: float3d 6s ease-in-out infinite;
+}
+.animate-float-medium {
+  animation: float3d 4s ease-in-out infinite alternate;
+}
+.animate-float-fast {
+  animation: float3d 3s ease-in-out infinite alternate-reverse;
+}
+.animate-pulse-glow {
+  animation: pulseGlow 3s ease-in-out infinite;
+}
+.animate-orbit {
+  animation: orbit 14s linear infinite;
+}
+
+@keyframes float3d {
+  0% { transform: translateY(0px) rotateX(0deg) rotateY(0deg); }
+  50% { transform: translateY(-12px) rotateX(3deg) rotateY(4deg); }
+  100% { transform: translateY(0px) rotateX(0deg) rotateY(0deg); }
+}
+
+@keyframes pulseGlow {
+  0%, 100% { opacity: 0.4; transform: scale(1); }
+  50% { opacity: 0.8; transform: scale(1.08); }
+}
+
+@keyframes spinSlow {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes orbit {
+  from { transform: rotate(0deg) translateX(40px) rotate(0deg); }
+  to { transform: rotate(360deg) translateX(40px) rotate(-360deg); }
+}
+
+/* Voice Wave Bars */
+.voice-bar {
+  display: inline-block;
+  width: 4px;
+  background-color: #1F7A70;
+  border-radius: 9999px;
+  animation: wave 1.2s ease-in-out infinite alternate;
+  box-shadow: 0 0 8px rgba(31, 122, 112, 0.4);
+}
+.voice-bar:nth-child(1) { height: 14px; animation-delay: 0.1s; }
+.voice-bar:nth-child(2) { height: 26px; animation-delay: 0.3s; }
+.voice-bar:nth-child(3) { height: 38px; animation-delay: 0.2s; }
+.voice-bar:nth-child(4) { height: 20px; animation-delay: 0.4s; }
+.voice-bar:nth-child(5) { height: 32px; animation-delay: 0.15s; }
+.voice-bar:nth-child(6) { height: 16px; animation-delay: 0.35s; }
+
+.voice-bar-accent {
+  background-color: #F2B84B;
+  box-shadow: 0 0 8px rgba(242, 184, 75, 0.5);
+}
+
+/* Match indicator ring */
+.match-ring {
+  stroke-dasharray: 283;
+  stroke-linecap: round;
+  transition: stroke-dashoffset 1s ease-out;
+}
+
+/* Rich 3D Gradients & Mesh overlays */
+.bg-gradient-hero {
+  background: radial-gradient(circle at 80% 20%, #1F7A70 0%, #123C35 55%, #0b2420 100%);
+}
+
+.bg-3d-mesh {
+  background-image: 
+    radial-gradient(at 10% 20%, rgba(31, 122, 112, 0.12) 0px, transparent 50%),
+    radial-gradient(at 90% 80%, rgba(242, 184, 75, 0.12) 0px, transparent 50%),
+    radial-gradient(at 50% 50%, rgba(18, 60, 53, 0.05) 0px, transparent 60%);
+}
+
+.bg-gradient-soft {
+  background: linear-gradient(180deg, #F7F5EF 0%, #FFFFFF 100%);
+}
+
+/* 3D Glass card backdrop */
+.glass-panel-3d {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.7);
+  box-shadow: 0 20px 50px -15px rgba(18, 60, 53, 0.08), inset 0 1px 0 0 rgba(255, 255, 255, 0.9);
+}
+
+/* Perspective container utility */
+.perspective-container {
+  perspective: 1200px;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 7px;
+  height: 7px;
+}
+::-webkit-scrollbar-track {
+  background: #F7F5EF;
+}
+::-webkit-scrollbar-thumb {
+  background: #c5c0b4;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #1F7A70;
+}
+
+/* Focus rings for accessibility */
+*:focus-visible {
+  outline: 2px solid #1F7A70;
+  outline-offset: 2px;
+  border-radius: 6px;
+}
+
+/* Large touch targets for mobile */
+@media (max-width: 768px) {
+  .livora-btn {
+    min-height: 52px;
+    padding: 0.875rem 1.25rem;
+  }
+  .livora-mic-btn {
+    width: 90px;
+    height: 90px;
+  }
+}
+
+@keyframes wave {
+  0%, 100% { transform: scaleY(0.4); }
+  50% { transform: scaleY(1.3); }
+}
+
+@keyframes breathe {
+  0%, 100% { transform: scale(1); opacity: 0.85; }
+  50% { transform: scale(1.06); opacity: 1; }
+}
+
